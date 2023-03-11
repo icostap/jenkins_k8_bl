@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+ name: nodejs-web
+ labels:
+   app: web
+spec:
+  replicas: 6
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+     containers:
+     - name: nodejs-web
+       image: public.ecr.aws/j1z0f1m9/nodjs-web:1.3
+       ports:
+         - containerPort: 80
