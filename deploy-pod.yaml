@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Pod
+spec:
+  containers:  # list of containers that you want present for your build, you can define a default container in the Jenkinsfile
+    - name: nodejs-web
+      image: public.ecr.aws/j1z0f1m9/nodjs-web:latest
+      imagePullPolicy: Always
