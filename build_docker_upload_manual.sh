@@ -4,6 +4,7 @@
 REGION="us-west-2"
 IMG_VERSION="1.5"
 
+
 # nodejs app
 aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j1z0f1m9
 
@@ -13,6 +14,13 @@ docker tag nodjs-web:$IMG_VERSION public.ecr.aws/j1z0f1m9/nodjs-web:$IMG_VERSION
 
 docker push public.ecr.aws/j1z0f1m9/nodjs-web:$IMG_VERSION
 
+IMG_VERSION="latest"
+
+docker build -t nodjs-web:$IMG_VERSION .
+
+docker tag nodjs-web:$IMG_VERSION public.ecr.aws/j1z0f1m9/nodjs-web:$IMG_VERSION
+
+docker push public.ecr.aws/j1z0f1m9/nodjs-web:$IMG_VERSION
 
 # python web server test
 #aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j1z0f1m9

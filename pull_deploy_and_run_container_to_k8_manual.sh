@@ -2,6 +2,7 @@
 
 #REGION="us-west-2"
 #IMG_VERSION="1.5"
+#IMG_VERSION="latest"
 
 #aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j1z0f1m9
 

@@ -9,27 +9,23 @@ pipeline {
 		        }
 		    }
 			steps {
-				sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/j1z0f1m9'
-				sh 'docker build -t nodjs-web:1.3 .'
-				sh 'docker tag nodjs-web:1.3 public.ecr.aws/j1z0f1m9/nodjs-web:1.3'
-				sh 'docker push public.ecr.aws/j1z0f1m9/nodjs-web:1.3'
+				sh 'echo stage of build docker and push to ECR'
 			}
 		}
-// 		stage('Run 2') {
-// 		    agent {
-// 		        kubernetes {
-// 		            idleMinutes 5
-// 		            yamlFile 'build-pod.yaml'
-// 		            defaultContainer 'docker'
-// 		            namespace 'kubernetes-plugin'
-// 		        }
-// 		    }
-// 			steps {
-// 			    container('docker') {
-//     				sh 'python3 --version'
-//     				sh 'python3 main.py'
-// 			    }
-// 			}
-// 		}
+		stage('Run 2') {
+		    agent {
+		        kubernetes {
+		            idleMinutes 5
+		            yamlFile 'deployment.yaml'
+		            defaultContainer 'docker'
+		            namespace 'kubernetes-plugin'
+		        }
+		    }
+			steps {
+			    container('docker') {
+    				sh 'Stage of run k8 deployment which will pull image from repository and deploy to k8 cluster'
+			    }
+			}
+		}
 	}
 }
