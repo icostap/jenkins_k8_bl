@@ -14,9 +14,9 @@ spec:
       labels:
         app: nodejs-web
     spec:
-     containers:
-     - name: nodejs-web
-       image: public.ecr.aws/j1z0f1m9/nodjs-web:latest
-       ports:
-       - name: http-port
-         containerPort: 80
+      containers:
+      - name: nodejs-web
+        image: public.ecr.aws/j1z0f1m9/nodjs-web:latest
+        ports:
+        - name: http-port
+          containerPort: 80
