@@ -23,12 +23,12 @@ pipeline {
 		        kubernetes {
 		            idleMinutes 5
 		            yamlFile 'deployment.yaml'
-		            defaultContainer 'docker'
+		            defaultContainer 'nodejs-web'
 		            namespace 'default'
 		        }
 		    }
 			steps {
-			    container('docker') {
+			    container('nodejs-web') {
     				sh 'Deploy pod to k8 cluster'
 			    }
 			}
