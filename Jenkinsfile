@@ -16,7 +16,6 @@ pipeline {
 //                         app.push("latest")
 //                         }
 //                     }
-                }
 			}
 		}
 		stage('Run 2') {
