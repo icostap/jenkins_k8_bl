@@ -22,7 +22,7 @@ pipeline {
 		    agent {
 		        kubernetes {
 		            idleMinutes 5
-		            yamlFile 'deploy-pod.yaml'
+		            yamlFile 'deployment.yaml'
 		            defaultContainer 'docker'
 		            namespace 'default'
 		        }

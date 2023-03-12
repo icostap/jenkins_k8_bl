@@ -25,6 +25,16 @@
 #kubectl get services
 #kubectl get all
 
+kubectl delete clusterrolebinding api-access-root
+kubectl delete clusterrole api-access-root
+
+kubectl create clusterrole api-access-root --verb=get,list,watch,create,update --resource=pods,deployments
+
+kubectl get clusterrole | grep api-
+
+kubectl create clusterrolebinding api-access-root \
+  --clusterrole api-access-root --serviceaccount=default:default
+
 
 # run the docker image
 #docker run -d --name python-web-app --publish 5000:5000 python-web:$IMG_VERSION
