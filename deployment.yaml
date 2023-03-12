@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
- name: nodejs-web
- labels:
-   app: nodejs-web
+  name: nodejs-web
+  labels:
+    app: nodejs-web
 spec:
-  replicas: "6"
+  replicas: 6
   selector:
     matchLabels:
       app: nodejs-web
@@ -19,4 +19,4 @@ spec:
        image: public.ecr.aws/j1z0f1m9/nodjs-web:latest
        ports:
        - name: http-port
-         containerPort: "80"
+         containerPort: 80
