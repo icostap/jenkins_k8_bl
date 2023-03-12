@@ -18,5 +18,4 @@ spec:
       - name: nodejs-web
         image: public.ecr.aws/j1z0f1m9/nodjs-web:latest
         ports:
-        - name:
-          containerPort: 80
+        - containerPort: 80
