@@ -19,4 +19,4 @@ spec:
        image: public.ecr.aws/j1z0f1m9/nodjs-web:latest
        ports:
        - name: http-port
-         containerPort: 80
+         containerPort: "80"
